@@ -43,7 +43,7 @@ function App() {
       }
     } else
       setY((prev) => {
-        if (prev == 0) return 0
+        if (prev === 0) return 0
         return prev - SCROLL_SPEED
       })
     // console.log(y)
@@ -53,11 +53,11 @@ function App() {
     return () => {
       window.removeEventListener('wheel', inc_y)
     }
-  }, [y])
+  })
 
   const next_slide = (e) => {
     console.log(e.key)
-    if (e.key == ' ') {
+    if (e.key === ' ') {
       setY((prev) => {
         if (prev < 50) return 50
         else if (prev < 70) return 120
@@ -67,7 +67,7 @@ function App() {
         setNotificationVisible(false)
         setScrolled(true)
       }
-    } else if (e.key == 'b') {
+    } else if (e.key === 'b') {
       setY((prev) => {
         if (prev >= 190) return 120
         else if (prev >= 120) return 70
@@ -80,15 +80,16 @@ function App() {
     return () => {
       window.removeEventListener('keydown', next_slide)
     }
-  }, [y])
+  })
   useEffect(() => {
-    setTimeout(() => {
-      if (!scrolled) {
-        setNotificationMessage('You can scroll or press space btw')
-        setNotificationVisible(true)
-      }
-    }, 3000)
-  }, [])
+    if (!scrolled)
+      setTimeout(() => {
+        if (!scrolled) {
+          setNotificationMessage('You can scroll or press space btw')
+          setNotificationVisible(true)
+        }
+      }, 3000)
+  }, [scrolled])
   return (
     <div className='main-bg'>
       <Cover
