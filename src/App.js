@@ -44,6 +44,7 @@ function App() {
     } else
       setY((prev) => {
         if (prev === 0) return 0
+        if (prev == 190) return 190
         return prev - SCROLL_SPEED
       })
     // console.log(y)
@@ -82,14 +83,16 @@ function App() {
     }
   })
   useEffect(() => {
-    if (!scrolled)
-      setTimeout(() => {
-        if (!scrolled) {
+    setTimeout(() => {
+      setScrolled((prev) => {
+        if (!prev) {
           setNotificationMessage('You can scroll or press space btw')
           setNotificationVisible(true)
         }
-      }, 3000)
-  }, [scrolled])
+        return prev
+      })
+    }, 3000)
+  }, [])
   return (
     <div className='main-bg'>
       <Cover

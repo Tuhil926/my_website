@@ -4,7 +4,11 @@ function Notification({ message, isVisible }) {
   return (
     <div
       className='notification'
-      style={{ opacity: isVisible ? '0%' : '100%' }}
+      style={{
+        opacity: isVisible ? '0%' : '100%',
+        // display: isVisible ? 'block' : 'none',
+        top: isVisible && '-3em',
+      }}
     >
       {message}
     </div>
