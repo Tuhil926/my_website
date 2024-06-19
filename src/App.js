@@ -44,7 +44,7 @@ function App() {
     } else
       setY((prev) => {
         if (prev === 0) return 0
-        if (prev == 190) return 190
+        if (prev === 190) return 190
         return prev - SCROLL_SPEED
       })
     // console.log(y)
