@@ -3,8 +3,8 @@ import React from 'react'
 function Home() {
   return (
     <div className='home nav-page'>
-      This is the home page. I haven't made anything here yet. Please stare at
-      the other pages instead
+      This is the home page. I haven't made anything here yet. I will make this
+      kind of like a blog page. For now, please stare at the other pages.
     </div>
   )
 }

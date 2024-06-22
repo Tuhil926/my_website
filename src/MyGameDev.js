@@ -17,6 +17,11 @@ const Game = ({
           alt="There's supposed to be an image here ¯\_(ツ)_/¯"
         ></img>
       )}
+      {videoSrc && (
+        <video controls>
+          <source src={videoSrc} />
+        </video>
+      )}
       <div className='buttons'>
         <a
           href={sourceLink}
@@ -43,7 +48,6 @@ const Game = ({
           Play/Download
         </a>
       </div>
-      {videoSrc && <video src={videoSrc}></video>}
       <label>{description}</label>
     </div>
   )
@@ -59,11 +63,11 @@ function MyGameDev() {
           this one. I made the levels myself though, and its quite hard to beat. Give it a \
           try if you want! I bet you cant beat level 7 lol.'
         }
-        imgSrc={''}
-        downloadLink={'https://tuhil.itch.io/dodge-the-blocks'}
+        imgSrc={'dodge_the_blocks.png'}
+        downloadLink={'https://tuhil.itch.io/dodgetheblocks'}
       />
       <Game
-        name={'Bouncy Ball'}
+        name={'Bouncy Ball 2'}
         description={
           "This is the second game I made in unity. I made it myself, inspired by the classic\
            game of pong. However, I added some more functionality - you can press left and right\
@@ -72,13 +76,23 @@ function MyGameDev() {
               arrow keys, or you can play with an AI opponent that's pretty hard to beat (its not \
               actually AI, its just an algorithm)"
         }
-        imgSrc={''}
-        downloadLink={'https://tuhil.itch.io/Bouncy-Ball'}
+        imgSrc={'bouncy_ball_2.jpg'}
+        downloadLink={'https://tuhil.itch.io/bouncy-ball-2'}
       />
-      <Game />
-      <Game />
-      <Game />
-      <Game />
+      <Game
+        name={"Some survival game.. didn't name it yet"}
+        description={
+          "It's kind of like minecraft, but in 2d. I'm making it in rust, using a game engine called bevy. I haven't finished it, but so far, you can \
+          explore an infinite world, the chunks are loaded and unloaded dynamically, and there \
+          are a few redstone-like blocks that you can place. For example, the wire can carry a \
+          signal, the inverter inverts the signal coming in, the repeater repeats the signal. And \
+          the stone block just gives off a full signal strength. In the image above, I made a t-flip \
+          flop, one of the important building blocks of electronics. So now that the game is fully \
+          turing complete, I need to add some actual gameplay content to it."
+        }
+        videoSrc={'survival_game_vid.webm'}
+        sourceLink={'https://github.com/Tuhil926/bevy_game_4'}
+      />
     </div>
   )
 }

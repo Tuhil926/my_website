@@ -3,7 +3,7 @@ import './App.css'
 import MainApp from './MainApp'
 import Notification from './Notification'
 
-const Cover = ({ is_right, y, text, classNm }) => {
+const Cover = ({ is_right, y, text, classNm, next_slide }) => {
   var offset = y
   if (offset < 0) offset = 0
   return (
@@ -17,6 +17,7 @@ const Cover = ({ is_right, y, text, classNm }) => {
         //   (!is_right && '0em ' + offset + '% ' + offset + '% 0em') ||
         //   (is_right && offset + '% 0 0 ' + offset + '%'),
       }}
+      onClick={() => next_slide()}
     >
       <h1>{text}</h1>
     </div>
@@ -55,19 +56,21 @@ function App() {
       window.removeEventListener('wheel', inc_y)
     }
   })
-
-  const next_slide = (e) => {
+  const next_slide = () => {
+    setY((prev) => {
+      if (prev < 50) return 50
+      else if (prev < 70) return 120
+      else return 190
+    })
+    if (!scrolled) {
+      setNotificationVisible(false)
+      setScrolled(true)
+    }
+  }
+  const handle_key_press = (e) => {
     console.log(e.key)
     if (e.key === ' ') {
-      setY((prev) => {
-        if (prev < 50) return 50
-        else if (prev < 70) return 120
-        else return 190
-      })
-      if (!scrolled) {
-        setNotificationVisible(false)
-        setScrolled(true)
-      }
+      next_slide()
     } else if (e.key === 'b') {
       setY((prev) => {
         if (prev >= 190) return 120
@@ -77,9 +80,9 @@ function App() {
     }
   }
   useEffect(() => {
-    window.addEventListener('keydown', next_slide)
+    window.addEventListener('keydown', handle_key_press)
     return () => {
-      window.removeEventListener('keydown', next_slide)
+      window.removeEventListener('keydown', handle_key_press)
     }
   })
   useEffect(() => {
@@ -100,17 +103,43 @@ function App() {
         y={y - 140}
         text='And this is'
         classNm='cover cover3'
+        next_slide={next_slide}
       />
       <Cover
         is_right={1}
         y={y - 140}
         text='My website'
         classNm='cover cover3'
+        next_slide={next_slide}
       />
-      <Cover is_right={0} y={y - 70} text="I'm" classNm='cover cover2' />
-      <Cover is_right={1} y={y - 70} text='Tuhil' classNm='cover cover2' />
-      <Cover is_right={0} y={y} text='Hello' classNm='cover cover1' />
-      <Cover is_right={1} y={y} text='There' classNm='cover cover1' />
+      <Cover
+        is_right={0}
+        y={y - 70}
+        text="I'm"
+        classNm='cover cover2'
+        next_slide={next_slide}
+      />
+      <Cover
+        is_right={1}
+        y={y - 70}
+        text='Tuhil'
+        classNm='cover cover2'
+        next_slide={next_slide}
+      />
+      <Cover
+        is_right={0}
+        y={y}
+        text='Hello'
+        classNm='cover cover1'
+        next_slide={next_slide}
+      />
+      <Cover
+        is_right={1}
+        y={y}
+        text='There'
+        classNm='cover cover1'
+        next_slide={next_slide}
+      />
       <Notification
         message={notificationMessage}
         isVisible={!notificationVisible && 'hidden'}

@@ -45,17 +45,17 @@ code {
 }
 
 .cover1 h1 {
-  font-size: 10em;
+  font-size: 10vw;
   margin: 0.2em;
   color: #333;
 }
 .cover2 h1 {
-  font-size: 10em;
+  font-size: 10vw;
   margin: 0.3em;
   color: #444;
 }
 .cover3 h1 {
-  font-size: 5em;
+  font-size: 5vw;
   margin: 0.3em;
   color: #555;
 }
@@ -98,7 +98,7 @@ code {
 .navbar div {
   font-family: monospace;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: min(1.9vw, 1.2em);
   color: #999;
   padding: 0.5em;
   background-color: #fff1;
@@ -122,14 +122,16 @@ code {
 }
 
 .nav-page {
-  padding: 2em;
+  padding: min(2em, 2vw);
   /* overflow: scroll;
   overflow-x: hidden; */
+  line-height: min(2em, 4vw);
+  font-size: min(1.2em, 2vw);
 }
 
-.about-me {
-  line-height: 2em;
-}
+/* .about-me {
+  line-height: min(2em, 2vw);
+} */
 
 .game {
   display: flex;
@@ -137,44 +139,47 @@ code {
   align-items: center;
   background-color: #fff1;
   height: auto;
-  padding: 4em;
-  margin: 2em;
-  border-radius: 5em;
-  line-height: 2em;
+  padding: min(4em, 4vw);
+  margin: min(2em, 2vw);
+  border-radius: min(5em, 5vw);
+  line-height: min(2em, 4vw);
   text-align: center;
+  font-size: min(1em, 2vw);
 }
 
 .game h2 {
-  font-size: 3em;
-  line-height: 1em;
+  font-size: min(3em, 5vw);
+  line-height: min(1em, 5vw);
 }
 
-.game img {
+.game img,
+video {
   width: 70%;
-  margin-top: 3em;
-  margin-bottom: 1em;
+  margin-top: min(3em, 3vw);
+  margin-bottom: min(1em, 1vw);
+  border-radius: min(1em, 1vw);
 }
 .game .buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  margin-top: 2em;
+  margin-top: min(2em, 2vw);
 }
 .game label {
-  margin-top: 2em;
+  margin-top: min(2em, 2vw);
 }
 .game .buttons a {
   background-color: #fff2;
   width: 30%;
   padding: 0.6em;
-  border-radius: 1em;
+  border-radius: min(1em, 1vw);
   text-decoration: none;
   color: #999;
 }
 
 *::-webkit-scrollbar {
-  width: 1em;
+  width: min(1em, 1.5vw);
 }
 
 *::-webkit-scrollbar-track {
@@ -183,7 +188,7 @@ code {
 
 *::-webkit-scrollbar-thumb {
   background-color: #666;
-  border-radius: 0.5em;
+  border-radius: min(0.5em, 0.75vw);
 }
 
 *::-webkit-scrollbar-thumb:hover {
@@ -192,4 +197,21 @@ code {
 
 *::-webkit-scrollbar-button {
   display: none;
+}
+
+.song {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff1;
+  padding: min(2em, 2vw);
+  border-radius: min(2em, 2vw);
+  align-items: center;
+  margin: min(1em, 1vw);
+}
+.song iframe {
+  width: 20vw;
+  height: 11.5vw;
+  border-radius: min(1em, 1vw);
+  border: none;
+  margin-right: min(3em, 3vw);
 }
