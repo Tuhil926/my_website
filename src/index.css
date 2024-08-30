@@ -159,6 +159,13 @@ video {
   margin-bottom: min(1em, 1vw);
   border-radius: min(1em, 1vw);
 }
+iframe {
+    width: 70vw;
+    height: 40vw;
+    margin-top: min(3em, 3vw);
+    margin-bottom: min(1em, 1vw);
+    border-radius: min(1em, 1vw);
+}
 .game .buttons {
   display: flex;
   flex-direction: row;
